@@ -1,0 +1,44 @@
+{
+  "name": "game",
+  "version": "0.0.0",
+  "description": "Simple 1010 game in Phaser 3",
+  "author": "Evgeniy Kozlov",
+  "license": "ISC",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint --no-fix src",
+    "test": "ts-mocha -r tsconfig-paths/register -r esm -p tsconfig.json 'tests/**/*.ts'",
+    "styles": "ts-node -P tsconfig.json -r tsconfig-paths/register src/tools/index.ts"
+  },
+  "dependencies": {
+    "phaser": "^3.55.2",
+    "reactive-observables": "^2.0.0-beta-2",
+    "reflect-metadata": "^0.1.13",
+    "tsyringe": "^4.6.0",
+    "vue": "^3.2.26"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.0",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^17.0.7",
+    "@typescript-eslint/eslint-plugin": "^5.8.1",
+    "@typescript-eslint/parser": "^5.8.1",
+    "@vitejs/plugin-vue": "^2.0.1",
+    "chai": "^4.3.4",
+    "eslint": "^8.6.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-vue": "^8.2.0",
+    "esm": "^3.2.25",
+    "mocha": "^8.4.0",
+    "ts-mocha": "^8.0.0",
+    "ts-node": "^10.4.0",
+    "tsconfig-paths": "^3.12.0",
+    "typescript": "^4.5.4",
+    "vite": "^2.7.10",
+    "vite-plugin-windicss": "^1.6.1",
+    "vite-svg-loader": "^3.1.1",
+    "windicss": "^3.4.2"
+  }
+}
