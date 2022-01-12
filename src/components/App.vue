@@ -23,6 +23,7 @@
       </div>
       <game />
     </div>
+    <github-link class="fixed right-4 bottom-4" />
   </div>
   <unavailable-screen v-else />
 </template>
@@ -33,6 +34,7 @@ import { ref } from 'vue';
 import Image1010 from '@/assets/svg/1010.svg';
 import ImageTrophy from '@/assets/svg/trophy.svg';
 import Game from '@/components/Game.vue';
+import GithubLink from '@/components/GithubLink.vue';
 import UnavailableScreen from '@/components/UnavailableScreen.vue';
 import { ScoreService } from '@/services/score.service';
 import { syncRef } from '@/utils/observables';
