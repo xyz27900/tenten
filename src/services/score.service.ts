@@ -28,7 +28,7 @@ export class ScoreService {
 
     if (this.current.value > this.highest.value) {
       this.highest.value = this.current.value;
-      this.storageService.write(SCORE_STORAGE_KEY, `${score}`);
+      this.storageService.write(SCORE_STORAGE_KEY, `${this.highest.value}`);
     }
   }
 
