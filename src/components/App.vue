@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center h-full">
+  <div v-if="isDesktop" class="flex justify-center h-full">
     <div class="flex flex-col">
       <div class="flex flex-col shrink-0 py-8">
         <div class="flex justify-center">
@@ -24,17 +24,21 @@
       <game />
     </div>
   </div>
+  <unavailable-screen v-else />
 </template>
 
 <script lang="ts" setup>
 import { container } from 'tsyringe';
+import { ref } from 'vue';
 import Image1010 from '@/assets/svg/1010.svg';
 import ImageTrophy from '@/assets/svg/trophy.svg';
 import Game from '@/components/Game.vue';
+import UnavailableScreen from '@/components/UnavailableScreen.vue';
 import { ScoreService } from '@/services/score.service';
 import { syncRef } from '@/utils/observables';
 
 const scoreService = container.resolve(ScoreService);
 const current = syncRef(scoreService.current);
 const highest = syncRef(scoreService.highest);
+const isDesktop = ref(!('ontouchstart' in window));
 </script>
