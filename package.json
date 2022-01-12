@@ -1,6 +1,6 @@
 {
   "name": "game",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Simple 1010 game in Phaser 3",
   "author": "Evgeniy Kozlov",
   "license": "ISC",
