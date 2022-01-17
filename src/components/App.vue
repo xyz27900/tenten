@@ -23,6 +23,7 @@
       </div>
       <game />
     </div>
+    <version-tag class="fixed left-4 bottom-4" />
     <github-link class="fixed right-4 bottom-4" />
   </div>
   <unavailable-screen v-else />
@@ -35,6 +36,7 @@ import ImageTrophy from '@/assets/svg/trophy.svg';
 import Game from '@/components/Game.vue';
 import GithubLink from '@/components/GithubLink.vue';
 import UnavailableScreen from '@/components/UnavailableScreen.vue';
+import VersionTag from '@/components/VersionTag.vue';
 import { container } from '@/di/container';
 import { ScoreService } from '@/services/score.service';
 import { syncRef } from '@/utils/observables';

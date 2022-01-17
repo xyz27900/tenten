@@ -4,6 +4,9 @@
     "browser": true,
     "node": true
   },
+  "globals": {
+    "__VERSION__": "readonly"
+  },
   "parser": "vue-eslint-parser",
   "parserOptions": {
     "parser": "@typescript-eslint/parser",

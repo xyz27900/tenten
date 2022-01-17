@@ -23,15 +23,17 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
+      - name: Get the version
+        id: version
+        run: echo ::set-output name=tag::${GITHUB_REF/refs\/tags\//}
+
       - name: Install dependencies
         run: npm ci
 
       - name: Build
         run: npm run build -- --base ${{ github.event.repository.name }}
-
-      - name: Get the version
-        id: version
-        run: echo ::set-output name=tag::${GITHUB_REF/refs\/tags\//}
+        env:
+          VERSION: ${{ steps.version.outputs.tag }}
 
       - name: Deploy website
         uses: alex-page/blazing-fast-gh-pages-deploy@v1.1.0
