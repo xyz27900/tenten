@@ -6,9 +6,9 @@
 </template>
 
 <script lang="ts" setup>
-import { container } from 'tsyringe';
 import { onMounted, ref } from 'vue';
 import GameOver from '@/components/GameOver.vue';
+import { container } from '@/di/container';
 import { Game } from '@/game';
 import { MatrixService } from '@/services/matrix.service';
 import { ScoreService } from '@/services/score.service';

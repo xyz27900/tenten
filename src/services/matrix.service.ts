@@ -1,19 +1,19 @@
 import { TrackedArray } from 'reactive-observables';
-import { singleton } from 'tsyringe';
+import { Provider } from '@/di/decorators';
 import { Point } from '@/models/point';
 import { Shape } from '@/models/shape';
 import { trackableArray } from '@/utils/observables';
 
 type MatrixValue = number | null;
 
-@singleton()
+@Provider()
 export class MatrixService {
   public readonly values: TrackedArray<MatrixValue>;
-  public readonly clearDelay: number;
+  public clearDelay: number;
 
-  constructor(clearDelay = 20) {
+  constructor() {
     this.values = trackableArray(Array.from({ length: 100 }).map(() => null));
-    this.clearDelay = clearDelay;
+    this.clearDelay = 20;
   }
 
   private static notNull<T>(value: T | null): value is T {
@@ -52,6 +52,10 @@ export class MatrixService {
     return Array
       .from({ length: 10 })
       .map((_, index) => new MatrixColumn(this, index));
+  }
+
+  public setDelay(delay: number): void {
+    this.clearDelay = delay;
   }
 
   public getCell(x: number, y: number): MatrixValue {

@@ -1,11 +1,11 @@
 import Phaser from 'phaser';
 import { TrackedSubject } from 'reactive-observables';
-import { inject, injectable } from 'tsyringe';
 import { FIELD_SIZE, SOUND_CLICK, SOUND_SUCCESS, TILE_SIZE } from '@/config';
+import { Injectable, UseScene } from '@/di/decorators';
+import { Rectangle } from '@/helpers/Rectangle';
 import { Point } from '@/models/point';
 import { Shape } from '@/models/shape';
 import { Size } from '@/models/size';
-import { ExtendedRectangle } from '@/objects/extended/Rectangle';
 import { ShapeContainer } from '@/objects/ShapeContainer';
 import { MatrixService } from '@/services/matrix.service';
 import { ScoreService } from '@/services/score.service';
@@ -14,7 +14,7 @@ import { StateService } from '@/services/state.service';
 import { trackable } from '@/utils/observables';
 import { promiseTimeout } from '@/utils/timeout';
 
-@injectable()
+@Injectable()
 export class DrawingLayer extends Phaser.GameObjects.Container {
   private readonly stateService: StateService;
   private readonly shapesService: ShapesService;
@@ -28,7 +28,7 @@ export class DrawingLayer extends Phaser.GameObjects.Container {
 
   private shapeContainer: ShapeContainer | null = null;
 
-  constructor(@inject('Scene') scene: Phaser.Scene, @inject(StateService) stateService: StateService, @inject(ShapesService) shapesService: ShapesService, @inject(MatrixService) matrixService: MatrixService, @inject(ScoreService) scoreService: ScoreService) {
+  constructor(@UseScene() scene: Phaser.Scene, stateService: StateService, shapesService: ShapesService, matrixService: MatrixService, scoreService: ScoreService) {
     super(scene, FIELD_SIZE / 2, FIELD_SIZE / 2);
     this.stateService = stateService;
     this.shapesService = shapesService;
@@ -55,7 +55,7 @@ export class DrawingLayer extends Phaser.GameObjects.Container {
 
   /* Creation helpers */
   private createHitArea(): Phaser.GameObjects.Rectangle {
-    return new ExtendedRectangle(this.scene, Point.origin(), Size.square(FIELD_SIZE));
+    return new Rectangle(this.scene, Point.origin(), Size.square(FIELD_SIZE));
   }
 
   private createShapeContainer(shape: Shape): ShapeContainer {

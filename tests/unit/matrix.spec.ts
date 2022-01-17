@@ -5,7 +5,8 @@ import { MatrixService } from '@/services/matrix.service';
 import { SHAPES } from '@/shapes';
 
 describe('Testing matrix', (): void => {
-  const matrixService = new MatrixService(0);
+  const matrixService = new MatrixService();
+  matrixService.setDelay(0);
 
   beforeEach((): void => matrixService.reset());
 

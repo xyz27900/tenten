@@ -1,15 +1,15 @@
 import Phaser from 'phaser';
-import { inject, injectable } from 'tsyringe';
 import { TILE_SIZE } from '@/config';
+import { Injectable, UseScene } from '@/di/decorators';
 import { Point } from '@/models/point';
 import { Element } from '@/objects/Element';
 import { MatrixService } from '@/services/matrix.service';
 
-@injectable()
+@Injectable()
 export class ObjectsLayer extends Phaser.GameObjects.Container {
   private readonly matrixService: MatrixService;
 
-  constructor(@inject('Scene') scene: Phaser.Scene, @inject(MatrixService) matrixService: MatrixService) {
+  constructor(@UseScene() scene: Phaser.Scene, matrixService: MatrixService) {
     super(scene);
     this.matrixService = matrixService;
     this.matrixService.subscribe(this.updateElements.bind(this));

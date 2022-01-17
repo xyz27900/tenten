@@ -1,15 +1,15 @@
 import Phaser from 'phaser';
-import { inject, injectable } from 'tsyringe';
 import { TILE_SIZE } from '@/config';
+import { Injectable, UseScene } from '@/di/decorators';
 import { ShapeButton } from '@/objects/ShapeButton';
 import { ShapesService } from '@/services/shapes.service';
 import { computed } from '@/utils/observables';
 
-@injectable()
+@Injectable()
 export class ShapeSelector extends Phaser.GameObjects.Container {
   private readonly shapesService: ShapesService;
 
-  constructor(@inject('Scene') scene: Phaser.Scene, @inject(ShapesService) shapesService: ShapesService) {
+  constructor(@UseScene() scene: Phaser.Scene, shapesService: ShapesService) {
     super(scene);
     this.shapesService = shapesService;
     this.create();

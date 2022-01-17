@@ -29,13 +29,13 @@
 </template>
 
 <script lang="ts" setup>
-import { container } from 'tsyringe';
 import { ref } from 'vue';
 import Image1010 from '@/assets/svg/1010.svg';
 import ImageTrophy from '@/assets/svg/trophy.svg';
 import Game from '@/components/Game.vue';
 import GithubLink from '@/components/GithubLink.vue';
 import UnavailableScreen from '@/components/UnavailableScreen.vue';
+import { container } from '@/di/container';
 import { ScoreService } from '@/services/score.service';
 import { syncRef } from '@/utils/observables';
 

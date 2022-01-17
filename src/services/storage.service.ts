@@ -1,6 +1,6 @@
-import { injectable } from 'tsyringe';
+import { Injectable } from '@/di/decorators';
 
-@injectable()
+@Injectable()
 export class StorageService {
   public read(path: string): string | null {
     return localStorage.getItem(path) ?? null;

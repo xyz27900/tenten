@@ -1,10 +1,10 @@
 import { TrackedArray, TrackedComputedSubject, TrackedSubject } from 'reactive-observables';
-import { singleton } from 'tsyringe';
+import { Provider } from '@/di/decorators';
 import { Shape } from '@/models/shape';
 import { SHAPES } from '@/shapes';
 import { computed, trackable, trackableArray } from '@/utils/observables';
 
-@singleton()
+@Provider()
 export class ShapesService {
   public readonly shapes: TrackedArray<Shape>;
   public readonly lockedShapes: TrackedArray<number>;

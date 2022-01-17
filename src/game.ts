@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
-import { container } from 'tsyringe';
 import { FIELD_SIZE } from '@/config';
+import { container } from '@/di/container';
 import { Main } from '@/scenes/Main';
 
 export class Game {

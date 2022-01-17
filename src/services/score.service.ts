@@ -1,17 +1,17 @@
 import { TrackedSubject } from 'reactive-observables';
-import { inject, singleton } from 'tsyringe';
 import { SCORE_STORAGE_KEY } from '@/config';
+import { Provider } from '@/di/decorators';
 import { StorageService } from '@/services/storage.service';
 import { trackable } from '@/utils/observables';
 
-@singleton()
+@Provider()
 export class ScoreService {
   private readonly storageService: StorageService;
 
   public readonly current: TrackedSubject<number>;
   public readonly highest: TrackedSubject<number>;
 
-  constructor(@inject(StorageService) storageService: StorageService) {
+  constructor(storageService: StorageService) {
     this.storageService = storageService;
     this.current = trackable(0);
     this.highest = trackable(this.loadFromStorage());

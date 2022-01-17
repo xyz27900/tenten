@@ -1,8 +1,8 @@
 import { TrackedSubject } from 'reactive-observables';
-import { singleton } from 'tsyringe';
+import { Provider } from '@/di/decorators';
 import { trackable } from '@/utils/observables';
 
-@singleton()
+@Provider()
 export class StateService {
   public readonly isOver: TrackedSubject<boolean>;
 

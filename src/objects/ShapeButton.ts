@@ -1,10 +1,10 @@
 import Phaser from 'phaser';
 import { Trackable, TrackedComputedSubject, TrackedSubject } from 'reactive-observables';
+import { Rectangle } from '@/helpers/Rectangle';
 import { Point } from '@/models/point';
 import { Shape } from '@/models/shape';
 import { Size } from '@/models/size';
 import { Element } from '@/objects/Element';
-import { ExtendedRectangle } from '@/objects/extended/Rectangle';
 import { computed } from '@/utils/observables';
 import { COLORS } from '@/vars/colors';
 
@@ -56,11 +56,11 @@ export class ShapeButton extends Phaser.GameObjects.Container {
 
   /* Creation helpers */
   private createBackground(size: number): Phaser.GameObjects.Rectangle {
-    return new ExtendedRectangle(this.scene, Point.origin(), Size.square(size), this.backgroundColor, .1);
+    return new Rectangle(this.scene, Point.origin(), Size.square(size), this.backgroundColor, .1);
   }
 
   private createBorder(size: number, width: number): Phaser.GameObjects.Rectangle {
-    return new ExtendedRectangle(this.scene, Point.origin(), Size.square(size - width), COLORS.WHITE, 0, width, COLORS.TEAL, this.borderAlpha);
+    return new Rectangle(this.scene, Point.origin(), Size.square(size - width), COLORS.WHITE, 0, width, COLORS.TEAL, this.borderAlpha);
   }
 
   private createShapeContainer(shape: Shape): Phaser.GameObjects.Container {
