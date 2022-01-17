@@ -4,7 +4,7 @@ import { PointInterface } from '@/models/point';
 import { SizeInterface } from '@/models/size';
 import { isTrackable, unwrapTrackable } from '@/utils/observables';
 
-export class ExtendedRectangle extends Phaser.GameObjects.Rectangle {
+export class Rectangle extends Phaser.GameObjects.Rectangle {
   constructor(
     scene: Phaser.Scene,
     center: PointInterface | Trackable<PointInterface>,
